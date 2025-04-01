@@ -1,5 +1,5 @@
 100 REM (SOURCE UNKNOWN) EDITED SLIGHTLY BY D. KURLAND 11/6/75
-110 PRINT "Welcome to Casino PicoCalc"
+110 cLS:PRINT "Welcome to Casino PicoCalc"
 120 PRINT "The game is Baccarat"
 130 H=0: RANDOMIZE TIMER
 140 GOSUB 1400
@@ -7,7 +7,7 @@
 160 PRINT "Are you ready";
 170 INPUT X$: PRINT
 180 IF X$="n" OR X$="N" THEN GOTO 1630
-190 PRINT "Wager";
+190 cls:PRINT "Wager";
 200 D=0
 210 E=0
 220 INPUT G: print
@@ -78,7 +78,7 @@
 870 PRINT "The card is a ";
 880 GOSUB 290
 890 GOSUB 1310
-900 PRINT "My first card is a ";
+900 print:PRINT "My first card is a ";
 910 GOSUB 290
 920 GOSUB 1340
 930 PRINT "My next card is a ";
@@ -98,7 +98,7 @@
 1070 IF D<10 THEN GOTO 1100
 1080 D=D-10
 1090 GOTO 1070
-1100 PRINT "Your total is";D
+1100 print:PRINT "Your total is";D
 1110 IF E<10 THEN GOTO 1140
 1120 E=E-10
 1130 GOTO 1110
@@ -143,6 +143,7 @@
 1511 PRINT "totaling 13 count as 3.  The"
 1520 PRINT "player with the higher total wins."
 1530 PRINT "In case of a tie, the computer wins."
+     print
 1540 PRINT "Do you understand the rules";
 1550 INPUT O$: print
 1560 IF O$="y" OR O$="Y" THEN RETURN

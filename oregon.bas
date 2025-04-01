@@ -14,7 +14,7 @@
 70  PRINT "Oregon City, OR in 1847. Your family of"
     PRINT "5 will cover the 2000 mile Oregon Trail"
 75  PRINT "in 5-6 months - If you make it alive."
-85  PRINT "You saves $900 to spend for the trip,"
+85  PRINT "You saved $900 to spend for the trip,"
 90  PRINT "and you've just paid $200 for a wagon."
 95  PRINT "You will need to spend the rest of your"
 100  PRINT "money on the following items:"
@@ -178,14 +178,14 @@
 1300  IF X1=-1 THEN GOTO 1350
 1305  X1=X1*-1
 1310  PRINT "Do you want to (1) Stop at the next fort"
-1315  INPUT "(2) Hunt, OR (3) continue";X: print
+1315  INPUT "(2) Hunt, OR (3) continue";X: print:print
 1325  IF X>2 THEN GOTO 1340
 1330  IF X<1 THEN GOTO 1340
 1332  LET X=INT(X)
 1335  GOTO 1400
 1340  LET X=3
 1345  GOTO 1400
-1350  INPUT "Do you want to (1) Hunt or (2) continue";X:print
+1350  INPUT "Do you want to (1) Hunt or (2) continue";X:print:print
 1360  IF X=1 THEN GOTO 1370
 1365  LET X=2
 1370  LET X=X+1
@@ -247,8 +247,8 @@
 1805  GOTO 3500
 1899  REM ***EATING***
 1900  PRINT "Do you want to eat (1) Poorly"
-      print "(2) Moderately OR (3) Well";
-1905  INPUT E: print
+      print "(2) Moderately or (3) Well";
+1905  INPUT E: print:print
 1910  IF E>3 THEN GOTO 1900
 1915  IF E<1 THEN GOTO 1900
 1920  LET E=INT(E)

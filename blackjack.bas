@@ -14,6 +14,7 @@
 180 E=N*52
     GOSUB 870
 	B=1
+	CLS
 	GOSUB 890
 	A=1
 190 PRINT
@@ -31,7 +32,7 @@
     H(1)=U
 	N=Q(2)
 	PRINT
-	PRINT "My up card";
+	PRINT "My up card ";
 	GOSUB 1050
 	N=P(R,1)
 250 PRINT
@@ -177,8 +178,7 @@
 	NEXT K,I
 	RETURN
 880 REM *********SHUFFLE THE CARDS ***********
-890 CLS
-    PRINT "I'm shuffling.... "
+890 PRINT "I'm shuffling.... "
 	FOR I=B TO E
 900 C=RND(1)*E
     IF C<B THEN GOTO 900
@@ -268,7 +268,7 @@
 	 RETURN
 1240 REM *******DEALERS LOGIC **********:
 1250 N=Q(1)
-     PRINT "My hole card";
+     PRINT "My hole card ";
 	 GOSUB 1050
 	 IF Y=0 THEN GOTO 1390
 1260 IF W<17 THEN GOTO 1300
@@ -350,7 +350,7 @@
 	 PRINT "2 - Double down"
 1700 PRINT "3 - Split a pair"
      PRINT
-	 PRINT "A 0 bed ends the game"
-1710 PRINT "A negative bet forces a shuffle"
-1720 PRINT "Good luck - Let's start"
+	 PRINT "A 0 bet ends the game."
+1710 PRINT "A negative bet forces a shuffle."
+1720 PRINT "Good luck - Let's start."
      RETURN

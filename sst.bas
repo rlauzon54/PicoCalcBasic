@@ -26,7 +26,7 @@
 250 REM *** ADAPTED TO MSBASIC V5.0+ INTEGER ROUNDING ON 18/8/18 BY FEILIPU
 260 REM ***
     REM ***  Adapted for the PicoCalc by Ron Lauzon, 3/29/2025
-290 CLS: font 7
+290 CLS: font 7: color rgb(lightgray)
 300 PRINT "THE USS ENTERPRISE --- NCC-1701"
 310 PRINT
 330 PRINT "                  ,------*------,"
@@ -139,10 +139,16 @@
 	B3=INT(G(Q1,Q2)*.1)-10*K3
 830 S3=G(Q1,Q2)-100*K3-10*B3
     IF K3=0 THEN goto 880
-840 PRINT TAB(3);"  COMBAT AREA      CONDITION RED";
+840 PRINT TAB(3);
+    color rgb(black), rgb(red)
+    print "  COMBAT AREA      CONDITION RED";
+    color rgb(lightgray), rgb(black)
 	PRINT
 850 IF S>200 THEN PRINT:GOTO 880
-860 PRINT TAB(3); "      SHIELDS DANGEROUSLY LOW";
+860 PRINT TAB(3);
+    color rgb(black), rgb(red)
+    print "      SHIELDS DANGEROUSLY LOW   ";
+    color rgb(lightgray), rgb(black)
 	PRINT
 870 PRINT
 880 FOR I=1 TO 3
@@ -186,7 +192,10 @@
 960 GOSUB 3020
 970 IF S+E>10 THEN IF E>10 OR D(7)=0 THEN goto 1030
 980 PRINT
-    PRINT TAB(10); "** FATAL ERROR **";
+    PRINT TAB(10);
+	color rgb(black), rgb(red)
+    print 	"** FATAL ERROR **";
+    color rgb(lightgray), rgb(black)
 	PRINT
 990 PRINT"YOU'VE JUST STRANDED YOUR SHIP IN SPACE."
 1000 PRINT"YOU HAVE INSUFFICIENT MANEUVERING ENERGY,"
@@ -391,7 +400,9 @@
 2080 PRINT K(I,1);",";
 2090 PRINT K(I,2);"."
      IF K(I,3)<=0 THEN PRINT
-2100 PRINT "*** KLINGON DESTROYED ***";
+2100 color rgb(yellow):
+     PRINT "*** KLINGON DESTROYED ***";
+	 color rgb(lightgray)
 	 PRINT
 	 GOTO 2120
 2110 PRINT" (SENSORS SHOW";K(I,3);" UNITS REMAINING)"
@@ -440,7 +451,9 @@
 	 GOSUB 4220
 	 IF Z3=0 THEN goto 2350
 2300 PRINT
+     color rgb(yellow)
 	 PRINT "*** KLINGON DESTROYED ***";
+	 color rgb(lightgray)
 	 PRINT
 2310 PRINT
      K3=K3-1
@@ -465,7 +478,9 @@
 	 Z2=Y
 	 GOSUB 4220
 	 IF Z3=0 THEN goto 2170
-2390 PRINT "*** STARBASE DESTROYED ***";
+2390 color rgb(red):
+     PRINT "*** STARBASE DESTROYED ***";
+	 color rgb(lightgray)
 	 PRINT
 2400 B3=B3-1
      B9=B9-1
@@ -512,9 +527,9 @@
 2630 PRINT
      D3=D3+D4
 	 IF D3>=1 THEN D3=.9
-2640 PRINT"TECHNICIANS STANDING BY TO EFFECT REPAIRS TO YOUR SHIP;"
-2650 PRINT"ESTIMATED TIME TO REPAIR:";.01*INT(100*D3);" STARDATES."
-2660 INPUT"WILL YOU AUTHORIZE THE REPAIR ORDER (Y/N)";a2$:print
+2640 PRINT"TECHNICIANS STANDING BY TO EFFECT REPAIRS TO YOUR"
+2650 PRINT"SHIP. ESTIMATED TIME TO REPAIR:";.01*INT(100*D3);" STARDATES."
+2660 INPUT"WILL YOU AUTHORIZE THE REPAIR ORDER (Y/N)";a2$:print:a2$=ucase$(a2$)
 2670 IF a2$<>"Y"THEN goto 970
 2680 FOR I=1 TO 8
      IF D(I)<0 THEN D(I)=0
@@ -567,8 +582,8 @@
 2980 PRINT
      PRINT "BACK TO SYSTEM."
 	 END
-2990 PRINT"CONGRATULATIONS, CAPTAIN!  THE LAST KLINGON BATTLE CRUISER"
-3000 PRINT"MENACING THE FEDERATION HAS BEEN DESTROYED."
+2990 PRINT"CONGRATULATIONS, CAPTAIN!  THE LAST KLINGON BATTLE"
+3000 PRINT"CRUISER MENACING THE FEDERATION HAS BEEN DESTROYED."
      PRINT
 3010 PRINT"YOUR EFFICIENCY RATING IS";1000*(K7/(T-T0))^2
      GOTO 2940
@@ -612,7 +627,18 @@
      PRINT O1$
 	 RETURN
 3180 PRINT"STARDATE          ";INT(T*10)*.1
-3200 PRINT"CONDITION         ";C4$
+3200 PRINT"CONDITION         ";
+     select case C4$
+	     case "GREEN"
+		     color rgb(GREEN)
+		 case "*RED*"
+		     COLOR rgb(BLACK),rgb(red)
+		 case "YELLOW"
+		     color rgb(yellow)
+		 case "DOCKED"
+		     color rgb(cyan)
+	 end select
+	 PRINT C4$;: color rgb(lightgray),rgb(black):print
 3240 PRINT"QUADRANT          ";Q1;",";Q2
 3260 PRINT"SECTOR            ";S1;",";S2
 3280 PRINT"PHOTON TORPEDOES  ";:PRINT INT(P)
@@ -656,7 +682,9 @@
 3560 FOR J=1 TO 8
      PRINT"| ";
 	 IF Z(I,J)=0 THEN PRINT"*** ";:GOTO 3580
+	 if (i=q1 and j=q2) then color rgb(gold)
 3570 PRINT RIGHT$(STR$(Z(I,J)+1000),3);" ";
+     color rgb(lightgray)
 3580 IF J=8 THEN PRINT "|"
 3590 NEXT J
      GOTO 3620
