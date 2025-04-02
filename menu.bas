@@ -10,12 +10,12 @@ next i
 Drive "B:"
 
 ' Load up the names of the programs on drive b:
-f1=1
+f1=0
 f$=Dir$("*.bas",FILE)
 Do While f$<>""
+   f1=f1+1
    file$(f1)=f$
    f$=Dir$()
-   f1=f1+1
 Loop
 
 ' Reset screen
@@ -44,8 +44,8 @@ mainLoop:
    if asc(a$)=128 then previ = i: i=i -1
 
    ' Can't go outside of file list
-   if i < 1 then i=1: goto mainLoop
-   if file$(i) = "" then i=previ: goto mainLoop
+   if i < 1 then i=f1
+   if i > f1 then i=1
 
    ' Enter pressed - select file
    if asc(a$)=10 then goto selectedFile
