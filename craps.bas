@@ -95,6 +95,6 @@
 1000 IF W>=0 THEN 1040
 1010 PRINT "You lost $";-W;" Tough life."
 1020 PRINT "Let this be a lesson."
-1030 STOP
+1030 goto 1050
 1040 PRINT "You won $";W;"... I will send the check tomorrow."
 1050 END
