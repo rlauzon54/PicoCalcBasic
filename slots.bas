@@ -19,18 +19,37 @@ end function
 280 '
 400 'clear the screen and print the heading
 410 CLS
+    color rgb(white)
 420 PRINT "SILVER DOLLAR SLOT MACHINE"
 430 PRINT
-440 PRINT "=== 3 BARS PAY $ 100 ===
-450 PRINT "3 CHERRIES, PLUMS or BELLS pay $ 10
-460 PRINT "2 CHERRIES, 2 PLUMS or 2 BELLS
-470 PRINT "when on the RIGHT side pay  $ 3
-480 PRINT "except with a lemon on the left.
+    color rgb(gold)
+440 PRINT "=== 3 BARS PAY $ 100 ==="
+    color rgb(red)
+450 PRINT "3 CHERRIES,";
+    color rgb(magenta)
+    print " PLUMS";
+	color rgb(green): print " or ";
+	color rgb(cyan): print "BELLS";
+	color rgb(green)
+	print " pay $ 10"
+	color rgb(red)
+460 PRINT "2 CHERRIES,";
+    color rgb(magenta)
+	print " 2 PLUMS";
+	color rgb(green)
+	print " or ";
+	color rgb(cyan)
+	print "2 BELLS"
+	color rgb(green)
+470 PRINT "when on the RIGHT side pay  $ 3"
+480 PRINT "except with a lemon on the left."
 490 '
 560 'print the wheels
+    color rgb(lightgray)
 570 PRINT @(0,ToPixelY(9)) A$;
 580 PRINT @(0,ToPixelY(10)) A$;
 590 PRINT @(0,ToPixelY(11)) A$;
+    color rgb(green)
 600 '
 610 ' get started
 620 PRINT @(0,ToPixelY(14)) "How many coins will you start with";
@@ -40,7 +59,8 @@ end function
 670 PRINT @(0,ToPixelY(14)) STRING$(48,32);
 680 '
 690 'start of main loop, play as long as CU is not zero
-700 PRINT @(0,ToPixelY(10)) A$;
+700 color rgb(lightgray)
+    PRINT @(0,ToPixelY(10)) A$;
 710 '
 720 ' spin the wheels and pick what they stop on.
 730 ' note that locate Y is already defined in the J loop here.
@@ -54,7 +74,9 @@ end function
 790     NEXT I
 800     GOSUB 1160 ' to pick what it stops on
 810     PRINT @(ToPixelX(y),ToPixelY(10)) C$;
+        color rgb(lightgray)
 820   NEXT J ' end of wheel spinning loop
+      color rgb(green)
 830 '
 840 ' take D$ apart to see what is in it
 850   FOR K=1 TO 3
@@ -93,41 +115,47 @@ end function
 1220 ON A1 GOTO 1250,1260,1270,1280,1290
 1230 '
 1240 ' D$ will be built up here to keep track of what we have
-1250 C$="  ==BAR== ":D$=D$+"1":RETURN
-1260 C$="   lemon  ":D$=D$+"2":RETURN
-1270 C$="   PLUM   ":D$=D$+"3":RETURN
-1280 C$="   BELL   ":D$=D$+"4":RETURN
-1290 C$="  CHERRY  ":D$=D$+"5":RETURN
+1250 color rgb(gold): C$="  ==BAR== ":D$=D$+"1":RETURN
+1260 color rgb(yellow): C$="   lemon  ":D$=D$+"2":RETURN
+1270 color rgb(magenta): C$="   PLUM   ":D$=D$+"3":RETURN
+1280 color rgb(cyan): C$="   BELL   ":D$=D$+"4":RETURN
+1290 color rgb(red): C$="  CHERRY  ":D$=D$+"5":RETURN
 1300 '
 1310 ' three bars win routine
 1320 FOR JP=1 TO 100
+	   color rgb(gold)
 1340   PRINT @(ToPixelX(5),ToPixelY(14)) "K L U N K":gosub 1810
 1345   pause 100
 1350   PRINT @(ToPixelX(5),ToPixelY(14)) STRING$(10,32);
        pause 100
 1360   CU=CU+1
+       color rgb(green)
 1370   PRINT @(0,ToPixelY(15)) "You now have $";CU
 1380 NEXT JP
 1390 RETURN
 1400 '
 1410 ' three of a kind win routine
 1420 FOR JP=1 TO 10
+	   color rgb(gold)
 1440   PRINT @(ToPixelX(5),ToPixelY(14)) "K L U N K":gosub 1810
 1445   pause 100
 1450   PRINT @(ToPixelX(5),ToPixelY(14)) STRING$(10,32);
        pause 100
 1460   CU=CU+1
+       color rgb(green)
 1470   PRINT @(0,ToPixelY(15)) "You now have $";CU
 1480 NEXT JP
 1490 RETURN
 1500 '
 1510 ' two on the right win routine
 1520 FOR JP=1 TO 3
+       color rgb(gold)
 1540   PRINT @(ToPixelX(5),ToPixelY(14)) "C L I N K":gosub 1810
 1545   pause 100
 1550   PRINT @(ToPixelX(5),ToPixelY(14)) STRING$(10,32);
        pause 100
 1560   CU=CU+1
+       color rgb(green)
 1570   PRINT @(0,ToPixelY(15)) "You now have $";CU
 1580 NEXT JP
 1590 RETURN
