@@ -18,6 +18,9 @@ Do While f$<>""
    f$=Dir$()
 Loop
 
+' Sort the files descending
+sort file$(),,,,(f1+1)
+
 ' Reset screen
 cls
 color rgb(lightgray),rgb(black)
