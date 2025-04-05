@@ -1,0 +1,5 @@
+You can assign a shortcut key to run menu.bas.
+
+option F1 "run "+chr$(34)+"b:\menu.bas" +chr$(34)+chr$(13)+chr$(10)
+
+This option is "permanent" (in that is survives reboots).
