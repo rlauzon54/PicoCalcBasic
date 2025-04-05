@@ -1,7 +1,9 @@
-You can use a flash slot to save your onboot.bas fil and set it to autoload.
+You can use a flash slot to save onboot.bas and set it to autoload.
 
 This works across power cycles and even if you remove the SD card.
 
-load "b:\onboot.bas"
+```
+load "onboot.bas"
 flash save 1
 option autorun 1
+```
