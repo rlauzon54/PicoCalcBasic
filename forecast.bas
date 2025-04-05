@@ -1,32 +1,13 @@
 ﻿10 CLS: RANDOMIZE TIMER
 20 REM Weather "forecaster"
 25 REM by Ron Lauzon 2022
-   print "What day is it?"
-   input "(1=Sun, .. 7=Sat)";dow:print:dow=int(dow)
-   if dow < 1 then goto 25
-   if dow > 7 then goto 25
-50 MON = VAL(MID$(TODAY$,4,2))
+   n = epoch(now): ' Get the current date time as an epoch
+   od = 24*60*60: ' 24 hours/day * 60 min/hour * 60 sec/min
+50 MON = VAL(MID$(TODAY$,4,2)): ' Get the month for the rules
 190 PRINT "Weekly forecast:"
 200 FOR I = 0 TO 6
 210 If I = 0 then print "Today - ";tab(14);:goto 220
-    dy=dow+i
-	if dy > 7 then dy=dy-7
-	select case dy
-	   case 1
-	      print "Sunday - ";tab(14);
-	   case 2
-	      print "Monday - ";tab(14);
-	   case 3
-	      print "Tuesday - ";tab(14);
-	   case 4
-	      print "Wednesday - ";tab(14);
-	   case 5
-	      print "Thursday - ";tab(14);
-	   case 6
-	      print "Friday - ";tab(14);
-	   case 7
-	      print "Saturday - ";tab(14);
-	end select
+    print day$(datetime$(n+od*i));" - ";tab(14);
 220 GOSUB 460: REM print forecast
 250 NEXT I
 260 END
