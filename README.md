@@ -12,6 +12,6 @@ Some notes:
 + SST is the old Super Star Trek.  New command: STA - Status.  This is because I couldn't get all the short range sensor stuff to display.
 + menu is a program that will allow you to select a program to run.  It has examples of how to get a list of files as well as how to detect key strokes and move the selection.
 + onboot is a little program to set the date/time and make the B: drive default.  Since the PicoCalc doesn't have an RTC, you have to set the date/time wheneveryou turn it on.
-
-NOTE:  All of these are still rough.  They are playable, but probably contain bugs and certainly need more work.
++ forecast is a weather "forecasting" program (mostly random number).  But the rules are for the Michigan area.  Change as needed for your weather.  It's surpringly accurate.
++ haunt.bas is Haunted House.  A very simple Zork-like adventure game.  May still be buggy as I haven't gone through all the paths yet.
 
