@@ -238,7 +238,9 @@
 1250 PRINT"   CHIEF ENGINEER SCOTT: 'THE ENGINES WON'T TAKE";
 1260 PRINT" WARP";W1;"!'"
      GOTO 970
-1270 PRINT "WARP ENGINES ARE DAMAGED.  MAXIUM SPEED = WARP 0.9"
+1270 color rgb(orange)
+     PRINT "WARP ENGINES ARE DAMAGED.  MAXIUM SPEED = WARP 0.9"
+     color rgb(lightgray)
      GOTO 970
 1280 N=INT(W1*8+.5)
      IF E-N>=0 THEN goto 1350
@@ -273,7 +275,9 @@
 1430 PRINT TAB(8);
      R1=I
 	 GOSUB 4130
+     color rgb(orange)
 	 PRINT G2$;" REPAIR COMPLETED."
+     color rgb(lightgray)
 1440 NEXT I
      IF RND>.2 THEN goto 1500
 1450 R1=FNR(1)
@@ -281,7 +285,9 @@
 1460 D(R1)=D(R1)-(RND*5+1)
      PRINT"DAMAGE CONTROL REPORT:"
 1470 GOSUB 4130
+     color rgb(orange)
      PRINT G2$;" DAMAGED"
+     color rgb(lightgray)
 	 PRINT
 	 GOTO 1500
 1480 D(R1)=D(R1)+RND*3+1
