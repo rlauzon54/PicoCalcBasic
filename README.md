@@ -15,4 +15,4 @@ Some notes:
 + forecast is a weather "forecasting" program (mostly random number).  But the rules are for the Michigan area.  Change as needed for your weather.  It's surpringly accurate.
 + haunt.bas is Haunted House.  A very simple Zork-like adventure game.  May still be buggy as I haven't gone through all the paths yet.
 + bcalc is a Business Calculator program ported from the TRS-80 Model 100
-
++ Baseconv is a base 2,8,10,16 conversion program based on the TRS-80 Model 100's HBD program but completely rewritten (i.e. not ported over).
