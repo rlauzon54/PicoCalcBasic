@@ -1,0 +1,9 @@
+You can use a flash slot to save autoexec.bas and set it to autoload.
+
+This works across power cycles and even if you remove the SD card.
+
+```
+load "autoexec.bas"
+flash save 1
+option autorun 1
+```
