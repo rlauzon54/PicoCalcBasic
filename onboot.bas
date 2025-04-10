@@ -25,7 +25,7 @@ input "Minute";minute:print
 
 ' Validate input
 if hour < 1 or hour > 24 then goto InputTime
-if minute < 1 or monute > 60 then goto InputTime
+if minute < 0 or monute > 60 then goto InputTime
 
 time$=str$(hour)+":"+str$(minute)+":30"
 
