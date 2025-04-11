@@ -17,3 +17,8 @@ Some notes:
 + haunt.bas is Haunted House.  A very simple Zork-like adventure game.  May still be buggy as I haven't gone through all the paths yet.
 + bcalc is a Business Calculator program ported from the TRS-80 Model 100
 + Baseconv is a base 2,8,10,16 conversion program based on the TRS-80 Model 100's HBD program but completely rewritten (i.e. not ported over).
+
+One problem that we've found is that, sometimes, when using INPUT, the scan codes for keys like the shifts, ctrl and alt, will be put into the string as characters, resulting in problems because there are extra characters in the input string.
+Those characters do not show up as you are inputting your response to INPUT.  But will be in the resulting string.
+
+inputString.bas is a function, with an example program, to allow you to input a string and strip out those extra characters that something puts in there.
