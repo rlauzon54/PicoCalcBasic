@@ -5,21 +5,22 @@ You will need to put siren.wav on the SD card.  Either by copying directly to th
 command over the serial connection.
 
 You use the cursor right/left keys to move the combination (1-60) right and left.
-The combination is 3 numbers.
-The moves are right-left-right
+The combination is 4 numbers.
+The moves are right-left-right-left
 
 Unlike a regular lock, you don't have to do a full rotation on the left move.
 
 You move the combination right until the indicator shows you got the first digit.
 Then move left until you get the second number.
-Finally move right until you get the third number.
+Then move right until you get the third number.
+And finally move left until you get the fourth number.
 
-If you move right when you should move left, then your crack attempt will be reset.
+If you move right when you should move left, then your crack attempt will be reset and you need to start over.
 
 ex:
 Let's say you find the first number.  But you to continue to move right, you no longer have 1 correct.
 After you find the first number, you are expected to move left.  If you hit the second number and keep moving left, you now have 0 correct.
 
-No penalty you when you hit the third number - you will immediately win.
+No penalty you when you hit the last number - you will immediately win.
 
 The clock starts ticking right away.  You have at least 3 minutes to crack the safe, but maybe up to 9 - it's random.

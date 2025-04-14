@@ -2,7 +2,7 @@ const maxNum = 60
 const Right = 0
 const Left = 1
 
-dim comb(3): ' Right-Left-right
+dim comb(4): ' Right-Left-Right-Left
 currentDial=1
 currentCorrect=0
 currentComb=0
@@ -84,7 +84,7 @@ MainLoop:
     end if
 
     ' Have we got all the numbers?
-    if currentCorrect = 3 then
+    if currentCorrect = 4 then
         goto GotIt
     end if
 
@@ -133,8 +133,8 @@ sub SplashScreen
      print "The safe way to be a burglar"
      print
      print
-     print "The combination is 3 numbers."
-     print "      Right-Left-Right"
+     print "The combination is 4 numbers."
+     print "   Right-Left-Right-Left"
      print
      print
      print "Press ";
@@ -242,8 +242,7 @@ sub ChooseCombination
     comb(0) = int(rnd*maxNum)+1
     comb(1) = int(rnd*maxNum)+1
     comb(2) = int(rnd*maxNum)+1
-    
-    'print @(0,ToPixelY(20)) comb(0);comb(1);comb(2): ' DEBUG
+    comb(3) = int(rnd*maxNum)+1
 end sub
 
 sub DisplayCurrent
