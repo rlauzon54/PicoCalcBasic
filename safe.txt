@@ -1,0 +1,25 @@
+Safe! is a rewrite of the Commodore PET game originally written by Gary Marsa in 1981 and distributed in CURSOR magazine #26.
+
+You will need to put siren.wav on the SD card.  Either by copying directly to the SD card or by using the 
+`XMODEM RECEIVE "siren.wav"
+command over the serial connection.
+
+You use the cursor right/left keys to move the combination (1-60) right and left.
+The combination is 3 numbers.
+The moves are right-left-right
+
+Unlike a regular lock, you don't have to do a full rotation on the left move.
+
+You move the combination right until the indicator shows you got the first digit.
+Then move left until you get the second number.
+Finally move right until you get the third number.
+
+If you move right when you should move left, then your crack attempt will be reset.
+
+ex:
+Let's say you find the first number.  But you to continue to move right, you no longer have 1 correct.
+After you find the first number, you are expected to move left.  If you hit the second number and keep moving left, you now have 0 correct.
+
+No penalty you when you hit the third number - you will immediately win.
+
+The clock starts ticking right away.  You have at least 3 minutes to crack the safe, but maybe up to 9 - it's random.
