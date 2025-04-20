@@ -81,6 +81,7 @@ select case asc(a1$)
 		gosub 30000
 	case 152
 		' Exit program
+        CLS
 		END
 end select
 
@@ -130,6 +131,7 @@ end select
 31040 PRINT TAB(5);"(F1) Find day of week"
 31050 PRINT TAB(5);"(F2) Days between dates"
 31060 PRINT TAB(5);"(F3) Date days hence/ago"
+      PRINT TAB(5);"(ESC) Menu"
 31070 PRINT
 31080 PRINT "Your choice? ";
 31090 GOSUB 41030
@@ -231,7 +233,9 @@ end select
 32040 PRINT " (F1) future worth    (F2) present worth";
 32050 PRINT "Equal payment series:"
 32060 PRINT " (F3) Future worth    (F4) Sinking fund
-32070 PRINT " (F5) Cptl recovery   (F6) Present worth";
+32070 PRINT " (F5) Cptl recovery   (F6) Present worth"
+      PRINT
+      PRINT "(ESC) Menu"
 32080 PRINT
 32090 PRINT "Your choice? ";
 32100 GOSUB 41030
@@ -291,6 +295,7 @@ end select
 33050 PRINT TAB(7);"(F2) Payment"
 33060 PRINT TAB(7);"(F3) Loan amount"
 33070 PRINT TAB(7);"(F4) Number of pmts"
+      PRINT TAB(7);"(ESC) Menu"
 33080 PRINT
 33090 PRINT "Your choice? ";
 33100 GOSUB 41030
@@ -381,6 +386,7 @@ end select
 34030 PRINT
 34040 PRINT TAB(5);"(F1) Find price"
 34050 PRINT TAB(5);"(F2) Find yield"
+      PRINT TAB(5);"(ESC) Menu"
 34060 PRINT
 34070 PRINT "Your choice? ";
 34080 GOSUB 41030
@@ -463,6 +469,7 @@ end select
 35050 PRINT TAB(5);"(F2) Find payment"
 35060 PRINT TAB(5);"(F3) Find future value"
 35070 PRINT TAB(5);"(F4) Find number of payments"
+      PRINT TAB(5);"(ESC) Menu"
 35080 PRINT
 35090 PRINT "Your choice? ";
 35100 GOSUB 41030
@@ -547,11 +554,12 @@ end select
 40000 ' Construct screen
 40010 CLS
 40020 color rgb(black),rgb(green)
-      PRINT " PicoCalc Business Calculator 01.00.00 ";
+      PRINT " PicoCalc Business Calculator 01.00.01 ";
 	  color rgb(green),rgb(black):print
 40030 IF OP$="" THEN OP$="="
-40040 PRINT @(0,ToPixelY(7)) "F1=1/X  F2=-X  F3=Sqr  F4=X*X"
-      print "F5=Log  F6=e^x  F7=Calc F8=Exit";
+40040 PRINT @(0,ToPixelY(20));
+      print "F1=1/X F2=-X   F3=Sqr  F4=X*X F5=Log"
+      print "F6=e^x F7=Calc F8=Exit ESC=Clr Acc"
 40050 PRINT @(0,ToPixelY(3)) string$(39,32);:'blank out line
       PRINT @(0,ToPixelY(3)) "Accum =";A
 40060 PRINT @(0,ToPixelY(5));
