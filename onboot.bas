@@ -10,7 +10,7 @@ input "Day";day:print
 ' Validate input
 if year < 100 then year = year+2000
 if month < 1 or month > 12 then goto InputDate
-if day < 1 or day > 21 then goto InputDate
+if day < 1 or day > 31 then goto InputDate
 
 date$=str$(year)+"-"+str$(month)+"-"+str$(day)
 print "Set date to ";date$
