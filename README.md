@@ -23,3 +23,8 @@ One problem that we've found is that, sometimes, when using INPUT, the scan code
 Those characters do not show up as you are inputting your response to INPUT.  But will be in the resulting string.
 
 inputString.bas is a function, with an example program, to allow you to input a string and strip out those extra characters that something puts in there.
+
+Links to other repos of PicoCalc programs in BASIC:
++ [PicoCalc-Toys](https://github.com/VanzT/PicoCalc-Toys)
++ [Scripts and utilities for picocalc MMBasic shell](https://github.com/huntergdavis/picocalc)
+
