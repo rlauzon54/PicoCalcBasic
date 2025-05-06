@@ -56,22 +56,15 @@ end sub
 sub SetDate
     print @(0,ToPixelY(5)) "Date:    YYYY-MM-DD";
     print @(ToPixelX(7),ToPixelY(5));
-    input dt$:print
+    dt$ = InputString("")
     date$=dt$
     print "Set date to ";date$
 end sub
 
-' Explanation here:
-' For some strange reason, when INPUTting
-' if you enter ":", it will add an extra character
-' that does not display.  Theory: It's the code
-' for the Shift key.  So enter a space instead
-' and then replace the space with a ":".
 sub SetTime
-    print @(0,ToPixelY(8)) "Time:    HH MM";
+    print @(0,ToPixelY(8)) "Time:    HH:MM";
     print @(ToPixelX(7),ToPixelY(8));
-    input t$:print
-    mid$(t$,3,1)=":"
+    t$ = InputString("")
     time$=t$
     print "Set time to ";time$
 end sub
@@ -80,3 +73,23 @@ sub ChangeDefaultDrive drv$
     drive drv$
     print@(ToPixelX(8),ToPixelY(2)) drv$
 end sub
+
+function InputString(prompt$) as String
+    local r$="", b$, i, m$
+
+    print prompt$;
+    input b$:print
+
+    for i = 1 to len(b$)
+        m$ = mid$(b$,i,1)
+        select case asc(m$)
+            ' Left shift, right shift, ctrl, alt
+            case 162, 163, 161, 165
+               m$=""
+        end select
+
+        r$=r$+m$
+    next i
+
+    InputString = r$
+end function
