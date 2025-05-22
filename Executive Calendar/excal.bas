@@ -856,7 +856,7 @@ DayDisplay:
             case Func3
                 rec$=DayPackRecord$(0, 0, 0, "    ", "    ", "empty")
                 
-                DayUpdateRecord rec$, calendarFile$, dayFileLoc(dataIndex)
+                UpdateRecord rec$, calendarFile$, dayFileLoc(dataIndex)
                 
                 goto DayDisplay
         end select
@@ -949,7 +949,7 @@ TodoList:
                 
                 if ndes$ <> "" then
                     rec$=TodoPackRecord$(year, Month, day, ndes$)
-                    TodoSaveNewRecord(rec$,todoFile$)
+                    SaveNewRecord(rec$,todoFile$)
                 endif
                 
                 goto TodoList
