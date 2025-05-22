@@ -171,8 +171,22 @@ function DayPackRecord$(y,m,d,tm$,dur$,desc$) as string
      DayPackRecord$ = temp$
 end function
 
+SUB SwapString a$, b$
+    LOCAL t$
+    t$ = a$
+    a$ = b$
+    b$ = t$
+END SUB
+
+SUB SwapNum a, b
+    LOCAL t
+    t = a
+    a = b
+    b = t
+END SUB
+
 sub DayGetDataForToday
-    local fileLoc
+    local fileLoc, p, tt$, td1$, td2$
      
     recCount = 0
 
@@ -187,8 +201,6 @@ sub DayGetDataForToday
         if len(rec$) > 0 then
             DayUnpackRecord(rec$)
 
-            'print @(0,toPixelY(20)) recYear;" ";recMon;" ";recDay
-
             if recYear = year and recMon = Month and recDay = day then
                 dayFileLoc(recCount) = fileLoc
                 dayYear(recCount) = recYear
@@ -198,6 +210,22 @@ sub DayGetDataForToday
                 dayDur$(recCount) = recDur$
                 dayDesc$(recCount) = recDesc$
                 recCount = recCount+1
+                
+                ' Move the newly added record "up" to the correct location
+                ' so the entries are sorted by time.
+                p = recCount-1
+                if p > 0 then
+                    do while dayTime$(p) < dayTime$(p-1)
+                        ' Don't bother swapping the year, month and day
+                        ' Because they are all the same.
+                        SwapNum dayFileLoc(p-1), dayFileLoc(p)
+                        SwapString dayTime$(p-1), dayTime$(p)
+                        SwapString dayDur$(p-1), dayDur$(p)
+                        SwapString dayDesc$(p-1), dayDesc$(p)
+                        p = p -1
+                        if p = 0 then exit loop
+                    loop
+                endif
             endif
         endif
 
