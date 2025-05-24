@@ -20,6 +20,7 @@ Some notes:
 + Safe is a rewrite of the Commodore PET Safe cracking game.
 + Progm - I Are A Programmer!  Just a cute little program.  Needs progm.jpg
 + enigma - A simple implementation of the German Enigma machine encryption
++ filemgr - A file manager. Move around.  Create/delete directories.  Copy/rename files or directories.
 
 One problem that we've found is that, sometimes, when using INPUT, the scan codes for keys like the shifts, ctrl and alt, will be put into the string as characters, resulting in problems because there are extra characters in the input string.
 Those characters do not show up as you are inputting your response to INPUT.  But will be in the resulting string.
