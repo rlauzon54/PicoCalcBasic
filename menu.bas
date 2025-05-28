@@ -51,7 +51,7 @@ mainLoop:
    if i > f1 then i=1
 
    ' Enter pressed - select file
-   if asc(a$)=10 then goto selectedFile
+   if asc(a$)=10 or asc(a$)=13 then goto selectedFile
 
    ' Move the selected file
    color rgb(lightgray),rgb(black)

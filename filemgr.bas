@@ -4,8 +4,10 @@ CONST TypeFile = 1
 CONST maxSlots=20: ' The number of "slots" on the screen to display things
 
 CONST ESC = 27
-CONST DEL = 212
-CONST RETURN = 10
+CONST DEL1 = 212
+CONST DEL2 = 127
+CONST RETURN1 = 10
+CONST RETURN2 = 13
 CONST UPARROW = 128
 CONST DOWNARROW = 129
 CONST Func1 = 145
@@ -206,7 +208,7 @@ Do
             chdir ".."
             goto MainProgram
 
-        case RETURN
+        case RETURN1, RETURN2
             if ft(fe) = TypeDirectory then
                 chdir fn$(fe)
                 goto MainProgram
@@ -246,7 +248,7 @@ Do
                 HighlightEntry fe, slotLoc
             endif
 
-        case DEL
+        case DEL1, DEL2
             if AreYouSure() = 1 then
                 if ft(fe) = TypeDirectory then
                     on error skip 1

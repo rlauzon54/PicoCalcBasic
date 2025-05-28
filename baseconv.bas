@@ -54,7 +54,7 @@ MainLoop:
             HandleEntry
 
         ' Enter
-        case 10
+        case 10, 13
             ProcessInput
         
         ' F1

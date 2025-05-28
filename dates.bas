@@ -64,7 +64,7 @@ end function
     
 260 PRINT @(0,ToPixelY(7)) "         Press ENTER to return         ";
 270 k1$=INKEy$:IF k1$="" THEN goto 270
-280 IF k1$=CHR$(10) THEN RETURN
+280 IF k1$=CHR$(10) or k1$=CHR$(13) THEN RETURN
     goto 270
 
 350 CLS
@@ -219,7 +219,7 @@ end select
       endif
 12320 IF N1=18 THEN
           N=N+1
-          IF N<18 AND k1$=CHR$(10) THEN
+          IF N<18 AND (k1$=CHR$(10) or k1$=CHR$(13)) THEN
               goto 12312
           endif
       endif
@@ -312,7 +312,7 @@ end select
       k1$="Press ENTER to return."
       gosub 250
 12910 k1$=INKEy$:IF k1$="" THEN goto 12910
-12920 IF k1$=CHR$(10) OR k1$=CHR$(27) THEN RETURN
+12920 IF k1$=CHR$(10) or k1$=CHR$(13) OR k1$=CHR$(27) THEN RETURN
 12925 IF k1$=CHR$(151) OR k1$=CHR$(152) THEN K8=1:RETURN
 12930 GOTO 12910
 
@@ -698,8 +698,8 @@ end select
       Y1=1
 24010 Y4$=INKEy$:IF Y4$="" THEN goto 24010
 24020 IF Y4$=CHR$(8) AND Y1<>1 THEN y2$=LEFT$(y2$,LEN(y2$)-1):Y1=Y1-1:GOTO 24060
-24050 IF INSTR("0123456789"+CHR$(10),Y4$)=0 THEN goto 24010
-24056 IF Y4$=CHR$(10) THEN PRINT @(ToPixelX(22),ToPixelY(7)) y2$;"    ";:GOTO 24070
+24050 IF INSTR("0123456789"+CHR$(10)+chr$(13),Y4$)=0 THEN goto 24010
+24056 IF Y4$=CHR$(10) or Y4$=CHR$(13) THEN PRINT @(ToPixelX(22),ToPixelY(7)) y2$;"    ";:GOTO 24070
 24058 y2$=y2$+Y4$
       Y1=Y1+1
 24060 PRINT @(TopixelX(22),ToPixelY(7)) y2$;
