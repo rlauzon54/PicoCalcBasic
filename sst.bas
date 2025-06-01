@@ -628,7 +628,7 @@
 3150 FOR J=(I-1)*24+1 TO (I-1)*24+22 STEP 3
      PRINT" ";MID$(Q$,J,3);
 3160 NEXT J
-     PRINT"|";I
+     PRINT" |";I
      NEXT I
      PRINT O1$
 	 RETURN
