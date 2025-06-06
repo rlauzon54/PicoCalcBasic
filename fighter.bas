@@ -134,7 +134,7 @@ end sub
 940 Y5=20:X5=0:GOSUB 670
 950 PRINT "The Home Base has been saved."
     print "        Congratulations"
-960 PRINT "Your mission record: ";format$(5/(5+D2)*100,"%5.2f);"%         "
+960 PRINT "Your mission record: ";format$(5/(5+D2)*100,"%5.2f");"%         "
 970 IF 5/(5+D2)*100 >75 THEN V8=V8-50:IF V8<=50 THEN GOTO 1200
 980 IF 5/(5+D2)*100 <51 THEN V8=V8+50
 990 PRINT "Do you want another mission?";
