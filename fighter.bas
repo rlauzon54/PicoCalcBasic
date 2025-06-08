@@ -16,6 +16,39 @@ sub CsrHome
     print @(0,0) "";
 end sub
 
+sub Explosion
+    local i, sx, sy, tx, ty, colr
+
+    ' The screen location that's the "center"
+    sx = 170
+    sy = 170
+    
+    ' The max area for the explosions
+    tx = MM.FONTWIDTH*2*2
+    ty = MM.FONTHEIGHT*2*2
+    
+    ' Make the explosions different colors
+    for i = 1 to 10
+        select case int(rnd*5)+1
+            case 1
+                colr = rgb(red)
+            case 2
+                colr = rgb(yellow)
+            case 3
+                colr = rgb(orange)
+            case 4
+                colr = rgb(white)
+            case 5
+                colr = rgb(gold)
+            case else
+                colr = rgb(red)
+        end select
+        
+        circle sx-int(rnd*tx), sy-int(rnd*ty), int(rnd*30), 1, 1, colr, colr
+        pause 50
+    next i
+end sub
+
 10 CLS
 11 T=0
 15 BLANK$="       "
@@ -99,7 +132,8 @@ end sub
 620 PRINT string$(8,32)+string$(11,196)+chr$(193)+string$(10,196)
 630 RETURN
 
-    ' Print enemy fighter
+    ' Print enemy fighterm
+    ' Red = in sights
 640 if x5=17 and y5=12 then
     color rgb(red)
 else
@@ -119,18 +153,17 @@ color rgb(green)
 740 IF X5=17 THEN GOTO 770
 750 GOSUB 880
 760 GOTO 320
-770 Y5=12
-X5=16
-GOSUB 670
-color rgb(red)
-PRINT "  POW   "
-color rgb(green)
-780 FOR N=0 TO 3:Beep:NEXT N
-790 pause 500
-800 GOSUB 670:PRINT BLANK$;
-810 pause 500
+770 Explosion
+FOR N=0 TO 3:Beep:NEXT N
+pause 500
+
+' Clear screen and redisplay sights
+cls
+Y5=6:X5=0:GOSUB 670:GOSUB 500
+
 820 Y5=22:X5=0:GOSUB 670
 830 PRINT "      May the Force Be With You!!"
+
 840 Y5=1:X5=0:GOSUB 670
 850 PRINT "Enemy destroyed=";D1
 860 D1=D1+1
@@ -154,11 +187,11 @@ color rgb(green)
 1020 IF q1$<>"Y" THEN END
 
 ' Blank out the end of game stuff
-    Y5=20:X5=0:GOSUB 670
-    PRINT string$(39,32)
-    PRINT string$(39,32)
-    PRINT string$(39,32)
-    PRINT string$(39,32)
+Y5=20:X5=0:GOSUB 670
+PRINT string$(39,32)
+PRINT string$(39,32)
+PRINT string$(39,32)
+PRINT string$(39,32)
 
 ' Go again
 1030 GOTO 270
