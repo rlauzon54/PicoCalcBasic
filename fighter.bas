@@ -100,7 +100,13 @@ end sub
 630 RETURN
 
     ' Print enemy fighter
-640 PRINT chr$(204)+chr$(205)+chr$(150)+chr$(205)+chr$(185)
+640 if x5=17 and y5=12 then
+    color rgb(red)
+else
+    color rgb(yellow)
+endif
+PRINT chr$(204)+chr$(205)+chr$(150)+chr$(205)+chr$(185)
+color rgb(green)
 650 P=Y5:Q=X5
 660 RETURN
 
@@ -113,7 +119,12 @@ end sub
 740 IF X5=17 THEN GOTO 770
 750 GOSUB 880
 760 GOTO 320
-770 Y5=12:X5=16:GOSUB 670:PRINT "  POW   "
+770 Y5=12
+X5=16
+GOSUB 670
+color rgb(red)
+PRINT "  POW   "
+color rgb(green)
 780 FOR N=0 TO 3:Beep:NEXT N
 790 pause 500
 800 GOSUB 670:PRINT BLANK$;
