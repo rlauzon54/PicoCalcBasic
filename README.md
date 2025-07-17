@@ -25,6 +25,7 @@ Some notes:
 + fighter - Tie fighter game
 + dm - Executive Decision Maker - like m8ball, but has some more glitz.
 + lotto - Generic lottery number generator.
++ Sea Battle - Another port from the old Creative Computing BASIC computer games.  Note fully tested.
 
 One problem that we've found is that, sometimes, when using INPUT, the scan codes for keys like the shifts, ctrl and alt, will be put into the string as characters, resulting in problems because there are extra characters in the input string.
 Those characters do not show up as you are inputting your response to INPUT.  But will be in the resulting string.
