@@ -13,6 +13,8 @@ CONST DOWNARROW = 129
 CONST Func1 = 145
 CONST Func2 = 146
 CONST Func3 = 147
+Const CDrive1 = 68
+Const CDrive2 = 100
 
 ' fn$ - The file/directory names
 ' ft - The type of entry
@@ -190,6 +192,7 @@ FormatScreen
 fe=0: ' The file entry we are currently on
 fTop=0: ' The file entry at the top of the screen
 slotLoc=1: ' The "slot" that's currently highlighted
+cdrive$=MM.Info(DRIVE): ' the current drive (A: or B:)
 
 DisplayFiles fTop
 
@@ -312,6 +315,15 @@ Do
             else
                 DisplayStatus " "
             endif
+
+        Case CDRIVE1, CDRIVE2   'toggle drive A: and B: with letter "D"
+            If cdrive$ = "A:" Then
+                Drive "B:"
+                GoTo MainProgram
+            Else
+                Drive "A:"
+                GoTo MainProgram
+            EndIf
 
     end select
 Loop
