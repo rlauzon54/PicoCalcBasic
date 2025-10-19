@@ -34,7 +34,7 @@
 350 PRINT "   '-------- --'      / /"
 360 PRINT "       ,---' '-------/ /--,"
 370 PRINT "        '----------------'"
-410 Z9$="                         "
+410 Z9$="                        "
 420 DIM G(8,8)
     DIM C(9,2)
 	DIM K(3,3)
@@ -620,14 +620,14 @@
      PRINT"*** SHORT RANGE SENSORS ARE OUT ***"
 	 PRINT
 	 RETURN
-3130 O1$="   +--1---2---3---4---5---6---7---8-+"
+3130 O1$="  +--1---2---3---4---5---6---7---8-+"
      PRINT O1$
 3140 FOR I=1 TO 8
      PRINT I;"|";
 3150 FOR J=(I-1)*24+1 TO (I-1)*24+22 STEP 3
      PRINT" ";MID$(Q$,J,3);
 3160 NEXT J
-     PRINT" |";I
+     PRINT"|";I
      NEXT I
      PRINT O1$
 	 RETURN
